@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event binding</title>
 </head>
+
 <body>
   <div id="root">React not rendered</div>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
@@ -18,19 +20,35 @@
       ])
     }
 
-    const App = () => {
-      return React.createElement('div', {}, [
-        React.createElement('h1', {}, 'REACT IS RENDERED!!!'),
-        React.createElement(Person, { name: 'Tuan Ngo', occupation: 'Developer' }),
-        React.createElement(Person, { name: 'Bao Linh', occupation: 'Accounting' }),
-        React.createElement(Person, { name: 'Thien Loc', occupation: 'Construction' }),
-      ]);
+    class App extends React.Component {
+      render() {
+        return React.createElement('div', {}, [
+          React.createElement(
+            'h1', 
+            {}, 
+            'REACT IS RENDERED!!!',
+          ),
+          React.createElement(
+            Person, 
+            {name: 'Tuan Ngo', occupation: 'Developer'},
+          ),
+          React.createElement(
+            Person, 
+            {name: 'Bao Linh', occupation: 'Accounting'},
+          ),
+          React.createElement(
+            Person, 
+            {name: 'Thien Loc', occupation: 'Construction'},
+          ),
+        ]);
+      }
     }
 
     ReactDOM.render(
       React.createElement(App),
-      document.getElementById('root'), 
+      document.getElementById('root'),
     );
   </script>
 </body>
+
 </html>
