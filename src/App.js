@@ -11,8 +11,12 @@ class App extends Component {
   }
 
   handleClick = () => {
-    this.setState({meaningOfLife: this.state.meaningOfLife + 1});
-    console.log(this.state.meaningOfLife);
+    this.setState({
+      meaningOfLife: this.state.meaningOfLife + 1},// Bad for "multiple setState" (meaningOfLife maybe not the latest call)
+      () => {
+        console.log(this.state.meaningOfLife);
+      }
+    );
   }
 
   render() {
