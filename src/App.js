@@ -1,26 +1,32 @@
+import logo from './logo.svg';
 import React, {Component} from 'react';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-
-    this.handleClick2 = this.handleClick1.bind(this);
+    this.state = {
+      meaningOfLife: 47,
+    }
   }
 
-  handleClick1() {
-    console.log(this);
+  handleClick = () => {
+    this.setState({meaningOfLife: this.state.meaningOfLife + 1});
+    console.log(this.state.meaningOfLife);
   }
-
-  handleClick3 = () => console.log(this);
 
   render() {
     return (
-      <div>
-        <button onClick={this.handleClick1()}>Click 1</button>
-        <button onClick={this.handleClick1}>Click 2</button>
-        <button onClick={this.handleClick2}>Click 3</button>
-        <button onClick={this.handleClick3}>Click 4</button>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            {this.state.meaningOfLife}
+          </p>
+          <button onClick={this.handleClick}>
+            Update State
+          </button>
+        </header>
       </div>
     );
   }
